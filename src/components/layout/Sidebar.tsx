@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { ThemeToggle } from '../shared/ThemeToggle';
 
 interface NavItem {
   path: string;
@@ -104,13 +105,16 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <button
-        onClick={() => setCollapsed(c => !c)}
-        className="p-3 border-t border-border text-[11px] font-semibold cursor-pointer transition-colors bg-transparent"
-        style={{ color: 'var(--color-muted)' }}
-      >
-        {collapsed ? '\u25B6' : '\u25C0 Collapse'}
-      </button>
+      <div className="border-t border-border">
+        <ThemeToggle collapsed={collapsed} />
+        <button
+          onClick={() => setCollapsed(c => !c)}
+          className="w-full p-3 border-t border-border text-[11px] font-semibold cursor-pointer transition-colors bg-transparent"
+          style={{ color: 'var(--color-muted)' }}
+        >
+          {collapsed ? '\u25B6' : '\u25C0 Collapse'}
+        </button>
+      </div>
     </aside>
   );
 }

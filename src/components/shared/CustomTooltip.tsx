@@ -4,7 +4,7 @@ export function CustomTooltip({ active, payload }: { active?: boolean; payload?:
   if (!d) return null;
   return (
     <div className="rounded-xl border border-border p-3 text-xs text-text max-w-[260px]"
-      style={{ background: '#1a1a2e', boxShadow: '0 12px 40px rgba(0,0,0,.6)' }}>
+      style={{ background: 'var(--color-card)', boxShadow: '0 12px 40px rgba(0,0,0,.25)' }}>
       <div className="font-bold mb-1">
         {(d.chip as string) || (d.name as string)} {d.ram ? `${d.ram}GB` : ''}
       </div>

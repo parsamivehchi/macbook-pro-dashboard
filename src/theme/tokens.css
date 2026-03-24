@@ -1,6 +1,36 @@
 @import "tailwindcss";
 
 @theme {
+  /* Light mode (default) */
+  --color-bg: #F8F9FA;
+  --color-card: #FFFFFF;
+  --color-card-alt: #F1F3F5;
+  --color-border: #DEE2E6;
+  --color-border-2: #CED4DA;
+  --color-text: #1A1A2E;
+  --color-sub: #6C757D;
+  --color-muted: #ADB5BD;
+  --color-accent: #2563EB;
+  --color-green: #059669;
+  --color-red: #DC2626;
+  --color-amber: #D97706;
+  --color-surface: #E9ECEF;
+
+  --color-gen-m2: #D97706;
+  --color-gen-m3: #0891B2;
+  --color-gen-m4: #7C3AED;
+  --color-gen-m5: #2563EB;
+
+  --color-tier-base: #64748B;
+  --color-tier-pro: #0D9488;
+  --color-tier-max: #EA580C;
+
+  --font-display: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
   --color-bg: #08080D;
   --color-card: #111118;
   --color-card-alt: #16161F;
@@ -23,9 +53,6 @@
   --color-tier-base: #94A3B8;
   --color-tier-pro: #2DD4BF;
   --color-tier-max: #FB923C;
-
-  --font-display: 'Manrope', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
 }
 
 @layer base {
@@ -35,6 +62,7 @@
     color: var(--color-text);
     min-height: 100vh;
     margin: 0;
+    transition: background 0.2s, color 0.2s;
   }
 
   ::-webkit-scrollbar { width: 5px; height: 5px; }
