@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useFilters } from '../hooks/useFilters';
 import { LLM_MODELS } from '../data/llm-models';
-import { GEN_COLORS, fmt, label } from '../utils/format';
+import { GEN_COLORS, label } from '../utils/format';
 import { PageHeader } from '../components/shared/PageHeader';
 import { InsightCard } from '../components/shared/InsightCard';
 import type { ChipConfig } from '../data/chips';
@@ -20,7 +20,7 @@ function estimateTokS(chip: ChipConfig, modelQ4GB: number): number {
   return Math.round(chip.bw / modelQ4GB * 0.85);
 }
 
-function fitQuality(chip: ChipConfig, modelQ4GB: number, modelMinRam: number): 'green' | 'amber' | 'red' | 'none' {
+function fitQuality(chip: ChipConfig, modelQ4GB: number, _modelMinRam: number): 'green' | 'amber' | 'red' | 'none' {
   const availableRam = chip.ram - 8;
   if (modelQ4GB > availableRam) return 'none';
   const headroom = availableRam - modelQ4GB;

@@ -10,7 +10,6 @@ import {
   Cell,
   LineChart,
   Line,
-  Legend,
 } from 'recharts';
 import { useFilters } from '../hooks/useFilters';
 import { GEN_COLORS, GENS, fmt, label } from '../utils/format';

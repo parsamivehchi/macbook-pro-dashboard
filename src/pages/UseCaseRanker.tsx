@@ -5,13 +5,9 @@ import {
 } from 'recharts';
 import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
-import { StatCard } from '../components/shared/StatCard';
-import { InsightCard } from '../components/shared/InsightCard';
-import { Pill } from '../components/shared/Pill';
 import { CHIPS } from '../data/chips';
-import { GEN_COLORS, TIER_COLORS, GENS, fmt, fD, label } from '../utils/format';
+import { GEN_COLORS, fD } from '../utils/format';
 import { USE_CASES, scoreUseCase } from '../data/use-cases';
-import type { ChipConfig } from '../data/chips';
 
 const METRIC_KEYS = ['g6s', 'g6m', 'g6g', 'bw', 'l7', 'ram', 'bat', 'ssd'] as const;
 type MetricKey = (typeof METRIC_KEYS)[number];
@@ -48,7 +44,7 @@ export default function UseCaseRanker() {
     const chips = filtered.length > 0 ? filtered : CHIPS;
     const scored = chips.map((c) => {
       const score = useCustom
-        ? scoreUseCase(c, { name: 'Custom', weights: customWeights })
+        ? scoreUseCase(c, { id: 'custom', name: 'Custom', icon: '', weights: customWeights })
         : scoreUseCase(c, USE_CASES[selectedUC]);
       return { ...c, score };
     });

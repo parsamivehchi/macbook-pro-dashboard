@@ -1,4 +1,5 @@
 export interface ChipConfig {
+  [key: string]: unknown;
   id: string;
   gen: 'M2' | 'M3' | 'M4' | 'M5';
   tier: 'Base' | 'Pro' | 'Max';

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useFilters } from '../hooks/useFilters';
-import { GEN_COLORS, fmt, label } from '../utils/format';
+import { GEN_COLORS, label } from '../utils/format';
 import { PageHeader } from '../components/shared/PageHeader';
 import { Pill } from '../components/shared/Pill';
 import type { ChipConfig } from '../data/chips';

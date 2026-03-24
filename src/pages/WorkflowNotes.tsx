@@ -1,13 +1,7 @@
-import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
-import { StatCard } from '../components/shared/StatCard';
-import { InsightCard } from '../components/shared/InsightCard';
-import { Pill } from '../components/shared/Pill';
-import { CHIPS } from '../data/chips';
-import { GEN_COLORS, TIER_COLORS, GENS, fmt, fD, label } from '../utils/format';
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip as RTooltip, ResponsiveContainer, Cell, Legend,
+  BarChart, Bar, XAxis, YAxis,
+  Tooltip as RTooltip, ResponsiveContainer,
 } from 'recharts';
 
 /* ---------- Data ---------- */
@@ -37,8 +31,6 @@ const MEMORY_BUDGET = [
 ];
 
 export default function WorkflowNotes() {
-  const { filtered } = useFilters();
-
   return (
     <div className="space-y-8">
       <PageHeader

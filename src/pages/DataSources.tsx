@@ -1,11 +1,5 @@
 import { useState } from 'react';
-import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
-import { StatCard } from '../components/shared/StatCard';
-import { InsightCard } from '../components/shared/InsightCard';
-import { Pill } from '../components/shared/Pill';
-import { CHIPS } from '../data/chips';
-import { GEN_COLORS, TIER_COLORS, GENS, fmt, fD, label } from '../utils/format';
 
 /* ---------- Source data ---------- */
 interface Source {
@@ -118,7 +112,6 @@ const DATA_LIMITATIONS = [
 ];
 
 export default function DataSources() {
-  const { filtered } = useFilters();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   const toggle = (cat: string) => {

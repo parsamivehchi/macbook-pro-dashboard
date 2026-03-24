@@ -12,10 +12,8 @@ import {
 } from 'recharts';
 import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
-import { StatCard } from '../components/shared/StatCard';
-import { InsightCard } from '../components/shared/InsightCard';
 import { CustomTooltip } from '../components/shared/CustomTooltip';
-import { GEN_COLORS, fmt, fD, label } from '../utils/format';
+import { GEN_COLORS, fmt } from '../utils/format';
 import type { ChipConfig } from '../data/chips';
 
 const BUDGET_TIERS = [
@@ -152,11 +150,7 @@ export default function CostAnalysis() {
             />
             <RTooltip
               content={
-                <CustomTooltip
-                  formatter={(val: number, name: string) =>
-                    name === 'depreciation' ? `${val}%` : `$${fmt(val)}`
-                  }
-                />
+                <CustomTooltip />
               }
             />
             <Legend wrapperStyle={{ color: 'var(--color-sub)' }} />

@@ -2,15 +2,9 @@ import { useState } from 'react';
 import {
   PieChart, Pie, Cell, ResponsiveContainer,
   Tooltip as RTooltip, Legend,
-  RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
 } from 'recharts';
 import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
-import { StatCard } from '../components/shared/StatCard';
-import { InsightCard } from '../components/shared/InsightCard';
-import { Pill } from '../components/shared/Pill';
-import { CHIPS } from '../data/chips';
-import { GEN_COLORS, TIER_COLORS, GENS, fmt, fD, label } from '../utils/format';
 
 /* ---------- Data ---------- */
 const WORKFLOW_DATA = [
@@ -97,7 +91,7 @@ const FINAL_RATIONALE = [
 ];
 
 export default function DecisionMatrix() {
-  const { filtered } = useFilters();
+  useFilters();
   const [activeTab, setActiveTab] = useState<Tab>('overall');
 
   const tabs: { key: Tab; label: string }[] = [
