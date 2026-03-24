@@ -12,18 +12,25 @@ export const label = (c: ChipConfig): string =>
 export const pct = (a: number, b: number): number =>
   b ? Math.round(((a - b) / b) * 100) : 0;
 
-export const GEN_COLORS: Record<string, string> = {
-  M2: '#F59E0B',
-  M3: '#06B6D4',
-  M4: '#A78BFA',
-  M5: '#3B82F6',
-};
+function getCSSVar(name: string): string {
+  if (typeof document === 'undefined') return '';
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
 
-export const TIER_COLORS: Record<string, string> = {
-  Base: '#94A3B8',
-  Pro: '#2DD4BF',
-  Max: '#FB923C',
-};
+// Fallback hex values for SSR / initial render, overridden by CSS vars at runtime
+const GEN_FALLBACKS = { M2: '#D97706', M3: '#0891B2', M4: '#7C3AED', M5: '#2563EB' };
+const TIER_FALLBACKS = { Base: '#64748B', Pro: '#0D9488', Max: '#EA580C' };
+
+export const getGenColor = (gen: string): string =>
+  getCSSVar(`--color-gen-${gen.toLowerCase()}`) || GEN_FALLBACKS[gen as keyof typeof GEN_FALLBACKS] || '#888';
+
+export const getTierColor = (tier: string): string =>
+  getCSSVar(`--color-tier-${tier.toLowerCase()}`) || TIER_FALLBACKS[tier as keyof typeof TIER_FALLBACKS] || '#888';
+
+// Static objects for backwards compat (used by components that don't re-render on theme change)
+// These use the light-mode fallbacks; for dynamic colors, use getGenColor/getTierColor
+export const GEN_COLORS: Record<string, string> = GEN_FALLBACKS;
+export const TIER_COLORS: Record<string, string> = TIER_FALLBACKS;
 
 export const GENS = ['M2', 'M3', 'M4', 'M5'] as const;
 export const TIERS = ['Base', 'Pro', 'Max'] as const;
