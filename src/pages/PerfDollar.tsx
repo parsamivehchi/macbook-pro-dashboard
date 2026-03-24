@@ -9,15 +9,12 @@ import {
   Tooltip as RTooltip,
   ResponsiveContainer,
   Cell,
-  Legend,
 } from 'recharts';
 import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
-import { StatCard } from '../components/shared/StatCard';
-import { InsightCard } from '../components/shared/InsightCard';
 import { Pill } from '../components/shared/Pill';
 import { CustomTooltip } from '../components/shared/CustomTooltip';
-import { GEN_COLORS, GENS, fmt, fD, label } from '../utils/format';
+import { GEN_COLORS, fmt } from '../utils/format';
 import type { ChipConfig } from '../data/chips';
 
 function valueScore(c: ChipConfig): number {
@@ -155,11 +152,7 @@ export default function PerfDollar() {
               <ZAxis dataKey="z" range={[40, 400]} name="RAM" />
               <RTooltip
                 content={
-                  <CustomTooltip
-                    formatter={(val: number, name: string) =>
-                      name === 'Price' ? `$${fmt(val)}` : `${val}`
-                    }
-                  />
+                  <CustomTooltip />
                 }
               />
               <Scatter data={scatterLLM} name="Chips">
@@ -241,11 +234,7 @@ export default function PerfDollar() {
               <ZAxis dataKey="z" range={[40, 400]} name="RAM" />
               <RTooltip
                 content={
-                  <CustomTooltip
-                    formatter={(val: number, name: string) =>
-                      name === 'Price' ? `$${fmt(val)}` : fmt(val)
-                    }
-                  />
+                  <CustomTooltip />
                 }
               />
               <Scatter data={scatterGB6} name="Chips">
@@ -436,7 +425,7 @@ export default function PerfDollar() {
                 >
                   {c.chip}
                 </span>
-                <Pill color="var(--color-green)">Sweet Spot</Pill>
+                <Pill label="Sweet Spot" active={false} color="var(--color-green)" onClick={() => {}} />
               </div>
               <div
                 className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs"

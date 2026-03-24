@@ -3,3 +3,4 @@ dist/
 .superpowers/
 test-artifacts/
 .DS_Store
+.vercel

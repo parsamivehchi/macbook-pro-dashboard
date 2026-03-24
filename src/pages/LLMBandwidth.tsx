@@ -10,13 +10,10 @@ import {
   ResponsiveContainer,
   Cell,
   ReferenceLine,
-  Legend,
 } from 'recharts';
 import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
 import { InsightCard } from '../components/shared/InsightCard';
-import { Pill } from '../components/shared/Pill';
-import { CustomTooltip } from '../components/shared/CustomTooltip';
 import { GEN_COLORS, fmt } from '../utils/format';
 import type { ChipConfig } from '../data/chips';
 

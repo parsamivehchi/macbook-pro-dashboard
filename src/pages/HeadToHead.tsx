@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import { useFilters } from '../hooks/useFilters';
 import { CHIPS } from '../data/chips';
-import { GEN_COLORS, fmt, fD, label } from '../utils/format';
+import { GEN_COLORS, label } from '../utils/format';
 import { PageHeader } from '../components/shared/PageHeader';
 import { ChipSelect } from '../components/shared/ChipSelect';
 import { DeltaBar } from '../components/shared/DeltaBar';
@@ -32,7 +32,7 @@ function normalize(val: number | null, max: number): number {
 }
 
 export default function HeadToHead() {
-  const { filtered } = useFilters();
+  useFilters();
   const [idA, setIdA] = useState('m4pro-14-20-24');
   const [idB, setIdB] = useState('m5pro-18-20-24');
 

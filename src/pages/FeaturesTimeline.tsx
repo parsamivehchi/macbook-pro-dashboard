@@ -215,7 +215,7 @@ export default function FeaturesTimeline() {
                 >
                   {m.title}
                 </span>
-                <Pill color={m.color}>{m.gen}</Pill>
+                <Pill label={m.gen} active={false} color={m.color} onClick={() => {}} />
               </div>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--color-sub)' }}>
                 {m.description}

@@ -284,9 +284,9 @@ export default function BudgetPicker() {
 
                   {/* Tags */}
                   <div className="flex gap-1.5 flex-wrap">
-                    <Pill color={genColor}>{c.gen}</Pill>
+                    <Pill label={c.gen} active={false} color={genColor} onClick={() => {}} />
                     {c.tier && (
-                      <Pill color="var(--color-surface)">{c.tier}</Pill>
+                      <Pill label={c.tier} active={false} color="var(--color-surface)" onClick={() => {}} />
                     )}
                   </div>
                 </div>

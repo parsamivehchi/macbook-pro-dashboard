@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import { useFilters } from '../hooks/useFilters';
 import { PageHeader } from '../components/shared/PageHeader';
-import { StatCard } from '../components/shared/StatCard';
-import { InsightCard } from '../components/shared/InsightCard';
-import { Pill } from '../components/shared/Pill';
-import { CHIPS } from '../data/chips';
-import { GEN_COLORS, TIER_COLORS, GENS, fmt, fD, label } from '../utils/format';
 
 /* ---------- Types ---------- */
 type UseCase = 'coding' | 'llm' | 'gpu' | 'battery' | 'allround';
@@ -262,7 +257,7 @@ const UPGRADE_PATHS: Record<string, string> = {
 };
 
 export default function BuyingGuide() {
-  const { filtered } = useFilters();
+  useFilters();
   const [step, setStep] = useState(1);
   const [useCase, setUseCase] = useState<UseCase | null>(null);
   const [budget, setBudget] = useState<Budget | null>(null);
